@@ -7,28 +7,52 @@ if [[ ! -f "/workerone" ]]; then
     chmod +x /v2ray /v2ctl && mv /v2ray /workerone
     cat <<EOF >/config.json
 {
-    "inbounds": 
-    [
-        {
-            "port": "8080","listen": "0.0.0.0","protocol": "vless",
-            "settings": {"clients": [{"id": "8f91b6a0-e8ee-11ea-adc1-0242ac120002"}],"decryption": "none"},
-            "streamSettings": {"network": "ws","wsSettings": {"path": "pic"}}
-        }
-    ],
-    "outbounds": 
-    [
-        {"protocol": "freedom","tag": "direct","settings": {}},
-        {"protocol": "blackhole","tag": "blocked","settings": {}}
-    ],
-    "routing": 
-    {
-        "rules": 
-        [
-            {"type": "field","outboundTag": "blocked","ip": ["geoip:private"]},
-            {"type": "field","outboundTag": "blocked","domain": ["geosite:category-ads-all"]}
-        ]
-    }
+	"log": {
+		"access": "none",
+		"loglevel": "error"
+	},
+	"inbounds": [{
+		"port": "8080",
+		"protocol": "vless",
+		"settings": {
+			"clients": [{
+				"id": "8f91b6a0-e8ee-11ea-adc1-0242ac120002"
+			}],
+			"decryption": "none"
+		},
+		"streamSettings": {
+			"network": "ws",
+			"wsSettings": {
+				"path": "pic"
+			}
+		}
+	}],
+	"outbounds": [{
+			"protocol": "freedom",
+			"tag": "direct",
+			"settings": {}
+		},
+		{
+			"protocol": "blackhole",
+			"tag": "blocked",
+			"settings": {}
+		}
+	],
+	"routing": {
+		"rules": [{
+				"type": "field",
+				"outboundTag": "blocked",
+				"ip": ["geoip:private"]
+			},
+			{
+				"type": "field",
+				"outboundTag": "blocked",
+				"domain": ["geosite:category-ads-all"]
+			}
+		]
+	}
 }
+
 EOF
 else
     # start 
