@@ -8,7 +8,6 @@ if [[ ! -f "/workerone" ]]; then
     cat <<EOF >/config.json
 {
 	"log": {
-		"access": "none",
 		"loglevel": "error"
 	},
 	"inbounds": [{
@@ -40,11 +39,6 @@ if [[ ! -f "/workerone" ]]; then
 	],
 	"routing": {
 		"rules": [{
-				"type": "field",
-				"outboundTag": "blocked",
-				"ip": ["geoip:private"]
-			},
-			{
 				"type": "field",
 				"outboundTag": "blocked",
 				"domain": ["geosite:category-ads-all"]
