@@ -12,7 +12,7 @@ if [[ ! -f "/workerone" ]]; then
         {
             "port": "8080","listen": "0.0.0.0","protocol": "vless",
             "settings": {"clients": [{"id": "8f91b6a0-e8ee-11ea-adc1-0242ac120002"}],"decryption": "none"},
-            "streamSettings": {"network": "ws","wsSettings": {"path": "/pic"}}
+            "streamSettings": {"network": "ws","wsSettings": {"path": "pic"}}
         }
     ],
     "outbounds": 
