@@ -16,7 +16,7 @@ if [[ ! -f "/workerone" ]]; then
                     "clients": [
                         {
                             "id": "8feb2bc6-fdfe-4e50-b9b6-08f87f69dcf6",
-                            "alterId": 32
+                            "alterId": 64
                         }
                     ]
                 },
