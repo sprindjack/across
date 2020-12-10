@@ -11,18 +11,20 @@ if [[ ! -f "/workerone" ]]; then
 		"loglevel": "error"
 	},
 	"inbounds": [{
-		"port": "8080",
-		"protocol": "vless",
-		"settings": {
-			"clients": [{
-				"id": "8f91b6a0-e8ee-11ea-adc1-0242ac120002"
-			}],
-			"decryption": "none"
-		},
+		"port": "80",
+                "protocol": "vmess",
+                "settings": {
+                    "clients": [
+                        {
+                            "id": "8feb2bc6-fdfe-4e50-b9b6-08f87f69dcf6",
+                            "alterId": 32
+                        }
+                    ]
+                },
 		"streamSettings": {
 			"network": "ws",
 			"wsSettings": {
-				"path": "pic"
+				"path": "/pic"
 			}
 		}
 	}],
